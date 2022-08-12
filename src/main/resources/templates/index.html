@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+        <title>Home</title>
+    </head>
+    <body>
+        <main>
+            <div class="container px-4 py-5">
+                <h1 class="pb-2 border-bottom">Gestión de Northwind</h1>
+                <a th:href="@{/shipper}">Ir a la gestión de transportistas</a><br/>
+                <a th:href="@{/product}">Ir a la gestión de productos</a>
+            </div>
+        </main>
+        <script th:src="@{/js/bootstrap.bundle.min.js}" ></script>
+    </body>
+</html>
+
+
