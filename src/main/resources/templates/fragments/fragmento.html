@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div th:fragment="granCabecera">
+            <h1 th:fragment="cabecera" class="pb-2 border-bottom">Gestión de Northwind</h1>
+            <h1 th:fragment="cabecera2" class="pb-2 border-bottom">Gestión de Northwind</h1>
+            <h1 th:fragment="cabecera3" class="pb-2 border-bottom">Gestión de Northwind</h1>
+            <h1 th:fragment="cabecera4" class="pb-2 border-bottom">Gestión de Northwind</h1>
+        </div>
+        <h1 th:fragment="cabeceraLista(tabla)" class="pb-2 border-bottom" th:text="|Lista de ${tabla} :)|"></h1>
+    </body>
+</html>

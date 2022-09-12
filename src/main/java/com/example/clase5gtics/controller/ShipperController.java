@@ -36,8 +36,19 @@ public class ShipperController {
     }
 
     @PostMapping("/save")
-    public String guardarNuevoTransportista(Shipper shipper, RedirectAttributes attr) {
+    public String guardarNuevoTransportista(Shipper shipper,
+                                            RedirectAttributes redirectAttributes) {
+
+        String texto;
+        if (shipper.getShipperId() != 0) {
+            texto = "Transportista actualizado exitosamente";
+        } else {
+            texto = "Transportista creado exitosamente";
+        }
         shipperRepository.save(shipper);
+
+        redirectAttributes.addFlashAttribute("msg", texto);
+
         return "redirect:/shipper/list";
     }
 
@@ -57,14 +68,14 @@ public class ShipperController {
     }
 
     @GetMapping("/delete")
-    public String borrarTransportista(Model model,
-                                      @RequestParam("id") int id,
+    public String borrarTransportista(@RequestParam("id") int id,
                                       RedirectAttributes attr) {
 
         Optional<Shipper> optShipper = shipperRepository.findById(id);
 
         if (optShipper.isPresent()) {
             shipperRepository.deleteById(id);
+            attr.addFlashAttribute("msg", "Transportista borrado existosamente");
         }
         return "redirect:/shipper/list";
 
@@ -72,7 +83,7 @@ public class ShipperController {
 
     @PostMapping("/BuscarTransportistas")
     public String buscarTransportista(@RequestParam("searchField") String searchField,
-                                      Model model){
+                                      Model model) {
 
         List<Shipper> listaTransportistas = shipperRepository.buscarTransPorCompName(searchField);
         model.addAttribute("shipperList", listaTransportistas);

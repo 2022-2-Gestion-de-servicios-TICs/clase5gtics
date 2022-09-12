@@ -9,10 +9,13 @@
     <body>
         <main>
             <div class="container px-4 py-5">
-                <h1 class="pb-2 border-bottom">Lista de transportistas</h1>
+                <h1 th:replace="fragments/fragmento :: cabeceraLista(tabla = 'transportistas')" class="pb-2 border-bottom">Lista de transportistas</h1>
                 <div class="d-flex mt-3 mb-4">
                     <a class="btn btn-primary" th:href="@{'/shipper/new'}">Nuevo Transportista</a>
                     <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Regresar</a>
+                </div>
+                <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert">
+                    A simple success alert—check it out!
                 </div>
                 <form method="post" th:action="@{/shipper/BuscarTransportistas}">
                     <input name="searchField" class="form-control mb-3" type="text" placeholder="Search"/>

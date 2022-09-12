@@ -9,7 +9,7 @@
     <body>
         <main>
             <div class="container px-4 py-5">
-                <h1 class="pb-2 border-bottom">Lista de Productos</h1>
+                <h1 th:replace="fragments/fragmento :: cabeceraLista(tabla = 'Productos')" class="pb-2 border-bottom">Lista de Productos</h1>
                 <div class="d-flex mt-3 mb-4">
                     <a class="btn btn-primary" th:href="@{'/product/new'}">Nuevo Producto</a>
                     <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Regresar</a>

@@ -16,9 +16,9 @@
                         <th>Región</th>
                         <th>Cantidad de empleados</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
+                    <tr th:each="empleadoPorRegion : ${listaEmpPorRegion}" th:object="${empleadoPorRegion}">
+                        <td th:text="*{regiondescription}"></td>
+                        <td th:text="*{getCantidadempleados()}"></td>
                     </tr>
                 </table>
                 <h4 class="mt-4">Cantidad de empleados por pais</h4>
@@ -36,16 +36,13 @@
                         <th>País</th>
                         <th>Cantidad de empleados</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
+                    <tr th:each="emp : ${listaEmpPorPais}">
+                        <td th:text="${emp.getPais()}"></td>
+                        <td th:text="${emp.cantidad}"></td>
                     </tr>
                 </table>
             </div>
         </main>
-        <h2>Estadisticas empleados</h2>
-        <hr/>
-
         <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
     </body>
 </html>
